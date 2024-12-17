@@ -26,7 +26,7 @@ def guess_mime_type(filename):
 
 def send(to, subject, body, *attachments):
     """
-    Sends an html email with optional attachments.
+    Sends a html email with optional attachments.
 
     Args:
         to (str): Email address of recipient.
@@ -37,12 +37,10 @@ def send(to, subject, body, *attachments):
     """
 
     # get email parameters
-    root = os.getenv('market_root')
-    email = os.get('email_address')
     sender = os.getenv('email_sender')
     pwd = os.getenv('email_pwd')
     server = os.getenv('email_server')
-    port = os.getenv('email_port')
+    port = int(os.getenv('email_port'))
 
     # set up the SMTP server
     s = smtplib.SMTP(host=server, port=port)
